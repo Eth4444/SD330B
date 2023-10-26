@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refrigerator App</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white; /* Initial background color */
+            transition: background-color 0.5s ease; /* Smooth transition for background color change */
+        }
+
+        .image-container {
+            width: 600px; /* Fixed width for the image container */
+            height: 400px; /* Fixed height for the image container */
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 100%; /* Images will take 100% of their parent container */
+            height: 100%; /* Images will take 100% of their parent container */
+            object-fit: cover; /* Ensure the image covers the entire container */
+        }
+
+        .info {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            display: none; /* Hide the video container by default */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-container">
+        <img id="fridgeImage" src="https://www.digitaltrends.com/wp-content/uploads/2016/01/Samsung-4-Door-Flex-Refrigerator-with-Family-Hub-.jpg?fit=859%2C572&p=1" alt="Fridge Image 1">
+    </div>
+    <button id="toggleButton">Open Fridge</button>
+    <button id="lightSwitchButton">Light Switch</button>
+    <button id="procrastinationButton">Times Procrastinated</button>
+    <div class="info" id="temperatureInfo"></div>
+    <div class="info" id="timeInfo"></div>
+    <div class="info" id="procrastinationCount">Times Procrastinated: 0</div>
+
+    <!-- Video container and DOOM! button -->
+    <div class="video-container" id="doomVideoContainer">
+        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <button id="doomButton">DOOM!</button>
+
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        const fridgeImage = document.getElementById('fridgeImage');
+        const temperatureInfo = document.getElementById('temperatureInfo');
+        const timeInfo = document.getElementById('timeInfo');
+        const lightSwitchButton = document.getElementById('lightSwitchButton');
+        const procrastinationButton = document.getElementById('procrastinationButton');
+        const procrastinationCount = document.getElementById('procrastinationCount');
+        const doomButton = document.getElementById('doomButton');
+        const doomVideoContainer = document.getElementById('doomVideoContainer');
+
+        let isImage1 = true;
+        let isLightOn = true;
+        let procrastinationCounter = 0;
+
+        toggleButton.addEventListener('click', () => {
+            isImage1 = !isImage1;
+            if (isImage1) {
+                fridgeImage.src = 'https://www.digitaltrends.com/wp-content/uploads/2016/01/Samsung-4-Door-Flex-Refrigerator-with-Family-Hub-.jpg?fit=859%2C572&p=1';
+            } else {
+                fridgeImage.src = 'https://www.sandravalvassori.com/wp-content/uploads/2021/04/2020-3260-6-728x811.jpg';
+            }
+        });
+
+        lightSwitchButton.addEventListener('click', () => {
+            isLightOn = !isLightOn;
+            document.body.style.backgroundColor = isLightOn ? 'white' : 'black';
+        });
+
+        procrastinationButton.addEventListener('click', () => {
+            procrastinationCounter++;
+            procrastinationCount.textContent = `Times Procrastinated: ${procrastinationCounter}`;
+        });
+
+        doomButton.addEventListener('click', () => {
+            // Embed YouTube video when the button is clicked
+            doomVideoContainer.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/8mEP4cflrd4?si=cM-3FoacMuS-7Kn0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+            doomVideoContainer.style.display = 'block';
+        });
+
+        // Display time and temperature continuously
+        setInterval(() => {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            const temperature = Math.floor(Math.random() * 30) + 1; // Random temperature for demonstration
+            temperatureInfo.textContent = `Temperature: ${temperature}°C`;
+            timeInfo.textContent = `Time: ${time}`;
+        }, 1000);
+    </script>
+</body>
+
+</html>
