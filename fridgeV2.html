@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refrigerator App</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white; /* Initial background color */
+            transition: background-color 0.5s ease; /* Smooth transition for background color change */
+        }
+
+        .image-container {
+            width: 600px; /* Fixed width for the image container */
+            height: 400px; /* Fixed height for the image container */
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 100%; /* Images will take 100% of their parent container */
+            height: 100%; /* Images will take 100% of their parent container */
+            object-fit: cover; /* Ensure the image covers the entire container */
+        }
+
+        .info {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            display: none; /* Hide the video container by default */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image-container">
+        <img id="fridgeImage" src="https://www.digitaltrends.com/wp-content/uploads/2016/01/Samsung-4-Door-Flex-Refrigerator-with-Family-Hub-.jpg?fit=859%2C572&p=1" alt="Fridge Image 1">
+    </div>
+    <button id="toggleButton">Open Fridge</button>
+    <button id="lightSwitchButton">Light Switch</button>
+    <button id="procrastinationButton">Times Procrastinated</button>
+    <button id="temperatureToggleButton">Toggle Temperature Unit</button>
+    <div class="info" id="temperatureInfo"></div>
+    <div class="info" id="timeInfo"></div>
+    <div class="info" id="procrastinationCount">Times Procrastinated: 0</div>
+    <div class="info" id="weatherInfo"></div>
+
+    <!-- Video container and DOOM! button -->
+    <div class="video-container" id="doomVideoContainer">
+        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <button id="doomButton">DOOM!</button>
+
+   <input type="text" id="shoppingItem" placeholder="Enter item">
+    <button id="addItemButton">Add Item</button>
+    <ul id="shoppingList"></ul>
+
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        const fridgeImage = document.getElementById('fridgeImage');
+        const temperatureInfo = document.getElementById('temperatureInfo');
+        const timeInfo = document.getElementById('timeInfo');
+        const lightSwitchButton = document.getElementById('lightSwitchButton');
+        const procrastinationButton = document.getElementById('procrastinationButton');
+        const procrastinationCount = document.getElementById('procrastinationCount');
+        const doomButton = document.getElementById('doomButton');
+        const doomVideoContainer = document.getElementById('doomVideoContainer');
+        const temperatureToggleButton = document.getElementById('temperatureToggleButton');
+        const addItemButton = document.getElementById('addItemButton');
+        const shoppingItemInput = document.getElementById('shoppingItem');
+        const shoppingList = document.getElementById('shoppingList');
+
+        let isImage1 = true;
+        let isLightOn = true;
+        let isTemperatureInCelsius = true;
+        let procrastinationCounter = 0;
+
+        toggleButton.addEventListener('click', () => {
+            isImage1 = !isImage1;
+            if (isImage1) {
+                fridgeImage.src = 'https://www.digitaltrends.com/wp-content/uploads/2016/01/Samsung-4-Door-Flex-Refrigerator-with-Family-Hub-.jpg?fit=859%2C572&p=1';
+            } else {
+                fridgeImage.src = 'https://www.sandravalvassori.com/wp-content/uploads/2021/04/2020-3260-6-728x811.jpg';
+            }
+        });
+
+        lightSwitchButton.addEventListener('click', () => {
+            isLightOn = !isLightOn;
+            document.body.style.backgroundColor = isLightOn ? 'white' : 'black';
+        });
+
+        procrastinationButton.addEventListener('click', () => {
+            procrastinationCounter++;
+            procrastinationCount.textContent = `Times Procrastinated: ${procrastinationCounter}`;
+        });
+
+        temperatureToggleButton.addEventListener('click', () => {
+            isTemperatureInCelsius = !isTemperatureInCelsius;
+            updateTemperatureDisplay();
+        });
+
+        function updateTemperatureDisplay() {
+            const temperature = Math.floor(Math.random() * 4) + 1; // Random temperature for demonstration
+            if (isTemperatureInCelsius) {
+                temperatureInfo.textContent = `Temperature: ${temperature}°C`;
+            } else {
+                const temperatureInFahrenheit = (temperature * 9 / 5) + 32;
+                temperatureInfo.textContent = `Temperature: ${temperatureInFahrenheit}°F`;
+            }
+        }
+
+        // Call the function initially to display temperature in Celsius
+        updateTemperatureDisplay();
+
+        doomButton.addEventListener('click', () => {
+            // Embed YouTube video when the button is clicked
+            doomVideoContainer.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/8mEP4cflrd4?si=cM-3FoacMuS-7Kn0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+            doomVideoContainer.style.display = 'block';
+        });
+
+        // Display time and temperature continuously
+        setInterval(() => {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            updateTemperatureDisplay();
+            timeInfo.textContent = `Time: ${time}`;
+        }, 1000);
+
+        function generateRandomWeather() {
+            const temperature = Math.floor(Math.random() * 30) - 10; // Random temperature between -10°C and 20°C
+            const conditions = ['Clear', 'Partly Cloudy', 'Cloudy', 'Rainy', 'Stormy'];
+            const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
+            const weatherText = `Weather: ${temperature}°C, ${randomCondition}`;
+            weatherInfo.textContent = weatherText;
+}
+
+// Call the generateRandomWeather function when the page loads to display initial weather data
+generateRandomWeather();
+
+// Update  weather data every 10 seconds (10000 milliseconds) for demonstration purposes
+setInterval(generateRandomWeather, 10000); // Update weather data every 10 seconds
+
+addItemButton.addEventListener('click', () => {
+            const newItem = shoppingItemInput.value.trim(); // Get the input value and remove extra whitespace
+            if (newItem !== '' && shoppingList.children.length < 5) {
+                // Check if the input is not empty and the list has less than 5 items
+                const listItem = document.createElement('li');
+                listItem.textContent = newItem;
+                shoppingList.appendChild(listItem);
+                shoppingItemInput.value = ''; // Clear the input field after adding the item
+            } else if (shoppingList.children.length >= 5) {
+                alert('You can only add up to 5 items to the shopping list.');
+            }
+        });
+    </script>
+</body>
+
+</html>
