@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>File List Display</title>
+    <style>
+        #backgrounddiv {
+            width: 100vw;
+            height: 100vh;
+            background-image: url('https://static.wikia.nocookie.net/spongebob/images/2/26/Bubbletown_002.png/revision/latest/scale-to-width/360?cb=20181028171458')
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body onload="githubFilelist()">
+    <h1> Ethan Hobbs System Design File List</h1>
+    <div id="files"></div>
+    <div id="backgrounddiv"
+    <p> Ethan Hobbs 11/8/2023 </p>
+    <script>
+    async function githubFilelist() {
+    var fileList = [];
+    try {
+        const response = await fetch("https://api.github.com/repos/Eth4444/SystemDesignWork/contents");
+        const data = await response.json();
+
+        for (let file of data) {
+            let fname = file.name;
+            let fpath = "https://eth4444.github.io/SystemDesignWork/" + fname;
+            fileList.push({ name: fname, path: fpath });
+        }
+
+        fileList.sort((a, b) => a.name.localeCompare(b.name)); // Sort files by name
+
+        var htmlString = "<ul>";
+        for (let file of fileList) {
+            htmlString += `<li><strong>File Name:</strong> <a href="${file.path}" target="_blank">${file.name}</a></li>`;
+            htmlString += `<li><strong>File Path:</strong> ${file.path}</li>`;
+        }
+        htmlString += "</ul>";
+
+        document.getElementById('files').innerHTML = htmlString;
+    } catch (error) {
+        console.error("Error fetching data: ", error);
+    }
+}
+
+
+    </script>
+</body>
+
+</html>
