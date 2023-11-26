@@ -1,0 +1,220 @@
+{
+  "courses": [
+    {
+      "course_id": 1,
+      "course_name": "Introduction to Programming",
+      "instructor": "Dr. Smith",
+      "duration_weeks": 12,
+      "start_date": "2023-02-01",
+      "students_enrolled": 50,
+      "description": "An introductory course to programming concepts using a modern programming language.",
+      "books": [
+        {
+          "book_id": 101,
+          "title": "Programming Basics",
+          "author": "John Coder",
+          "published_date": "2022-05-15",
+          "isbn": "978-1234567890",
+          "edition": 2
+        },
+        {
+          "book_id": 102,
+          "title": "Code Mastery",
+          "author": "Alice Developer",
+          "published_date": "2021-09-10",
+          "isbn": "978-0987654321",
+          "edition": 1
+        }
+      ]
+    },
+    {
+      "course_id": 2,
+      "course_name": "Web Development Fundamentals",
+      "instructor": "Prof. Johnson",
+      "duration_weeks": 10,
+      "start_date": "2023-03-15",
+      "students_enrolled": 40,
+      "description": "Learn the basics of web development, including HTML, CSS, and JavaScript.",
+      "books": [
+        {
+          "book_id": 103,
+          "title": "HTML5 and CSS3 Guide",
+          "author": "Eva Coder",
+          "published_date": "2022-12-01",
+          "isbn": "978-9876543210",
+          "edition": 3
+        },
+        {
+          "book_id": 104,
+          "title": "JavaScript Essentials",
+          "author": "Bob Coder",
+          "published_date": "2022-06-20",
+          "isbn": "978-0123456789",
+          "edition": 2
+        }
+      ]
+    },
+    {
+      "course_id": 3,
+      "course_name": "Data Science Basics",
+      "instructor": "Dr. Davis",
+      "duration_weeks": 8,
+      "start_date": "2023-04-10",
+      "students_enrolled": 35,
+      "description": "Explore the fundamentals of data science, including data analysis and visualization.",
+      "books": [
+        {
+          "book_id": 105,
+          "title": "Data Science Foundations",
+          "author": "Emma Data",
+          "published_date": "2022-11-05",
+          "isbn": "978-1357924680",
+          "edition": 1
+        },
+        {
+          "book_id": 106,
+          "title": "Python for Data Analysis",
+          "author": "Jake VanderPlas",
+          "published_date": "2021-08-15",
+          "isbn": "978-1491957660",
+          "edition": 2
+        }
+      ]
+    },
+    {
+      "course_id": 4,
+      "course_name": "Mobile App Development",
+      "instructor": "Prof. Rodriguez",
+      "duration_weeks": 14,
+      "start_date": "2023-05-20",
+      "students_enrolled": 55,
+      "description": "Learn to develop mobile applications for iOS and Android platforms.",
+      "books": [
+        {
+          "book_id": 107,
+          "title": "iOS App Development",
+          "author": "Chris Adam",
+          "published_date": "2022-10-10",
+          "isbn": "978-0123456789",
+          "edition": 2
+        },
+        {
+          "book_id": 108,
+          "title": "Android Programming",
+          "author": "Paul King",
+          "published_date": "2022-04-01",
+          "isbn": "978-9876543210",
+          "edition": 4
+        }
+      ]
+    },
+    {
+      "course_id": 5,
+      "course_name": "Database Management",
+      "instructor": "Dr. White",
+      "duration_weeks": 10,
+      "start_date": "2023-06-15",
+      "students_enrolled": 30,
+      "description": "Explore the principles and practices of database management.",
+      "books": [
+        {
+          "book_id": 109,
+          "title": "Database Systems",
+          "author": "Thomas Connolly",
+          "published_date": "2022-07-25",
+          "isbn": "978-0135204759",
+          "edition": 7
+        },
+        {
+          "book_id": 110,
+          "title": "SQL Mastery",
+          "author": "Laura Davidson",
+          "published_date": "2021-12-05",
+          "isbn": "978-0596555580",
+          "edition": 3
+        }
+      ]
+    },
+    {
+      "course_id": 6,
+      "course_name": "Machine Learning Basics",
+      "instructor": "Prof. Taylor",
+      "duration_weeks": 12,
+      "start_date": "2023-07-01",
+      "students_enrolled": 45,
+      "description": "Introduction to machine learning algorithms and applications.",
+      "books": [
+        {
+          "book_id": 111,
+          "title": "Machine Learning in Action",
+          "author": "Peter Harrington",
+          "published_date": "2022-09-15",
+          "isbn": "978-1617290183",
+          "edition": 2
+        },
+        {
+          "book_id": 112,
+          "title": "Pattern Recognition",
+          "author": "Christopher M. Bishop",
+          "published_date": "2022-02-28",
+          "isbn": "978-1493938438",
+          "edition": 4
+        }
+      ]
+    },
+    {
+      "course_id": 7,
+      "course_name": "Cybersecurity Fundamentals",
+      "instructor": "Dr. Brown",
+      "duration_weeks": 8,
+      "start_date": "2023-08-10",
+      "students_enrolled": 25,
+      "description": "Learn the basics of cybersecurity, including threat analysis and risk management.",
+      "books": [
+        {
+          "book_id": 113,
+          "title": "Cybersecurity Essentials",
+          "author": "William Gibson",
+          "published_date": "2022-04-20",
+          "isbn": "978-1260136191",
+          "edition": 2
+        },
+        {
+          "book_id": 114,
+          "title": "Hacking Exposed",
+          "author": "Stuart McClure",
+          "published_date": "2021-11-10",
+          "isbn": "978-1264011892",
+          "edition": 7
+        }
+      ]
+    },
+    {
+      "course_id": 8,
+      "course_name": "Artificial Intelligence Applications",
+      "instructor": "Prof. Lee",
+      "duration_weeks": 14,
+      "start_date": "2023-09-01",
+      "students_enrolled": 60,
+      "description": "Explore practical applications of artificial intelligence in various domains.",
+      "books": [
+        {
+          "book_id": 115,
+          "title": "Artificial Intelligence: A Modern Approach",
+          "author": "Stuart Russell",
+          "published_date": "2022-08-05",
+          "isbn": "978-0136042594",
+          "edition": 4
+        },
+        {
+          "book_id": 116,
+          "title": "AI Applications in Business",
+          "author": "Emily Watson",
+          "published_date": "2022-03-10",
+          "isbn": "978-1788470669",
+          "edition": 1
+        }
+      ]
+    }
+  ]
+}
